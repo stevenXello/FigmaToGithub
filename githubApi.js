@@ -1,9 +1,15 @@
-function uploadFile() {
+async function uploadFile() {
     let contentString =
         "PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzM6NTMpIj4KPHBhdGggZD0iTTYyIDIzLjIzMTlDNjMuMSAyMy4yMzE5IDY0IDIyLjMzMjYgNjQgMjEuMjMzNVYxNC4yMzg5QzY0IDEzLjQzOTUgNjMuNSAxMi43NDAxIDYyLjggMTIuMzQwNEwzMi44IDAuMTQ5OTMyQzMyLjMgLTAuMDQ5OTExNCAzMS44IC0wLjA0OTkxMTQgMzEuMyAwLjE0OTkzMkwxLjMgMTIuMzQwNEMwLjUgMTIuNjQwMiAwLjEgMTMuMzM5NiAwLjEgMTQuMjM4OVYyMS4yMzM1QzAuMSAyMi4zMzI2IDEgMjMuMjMxOSAyLjEgMjMuMjMxOUg2LjJWNTIuMDA5NEgyQzAuOSA1Mi4wMDk0IDAgNTIuOTA4NyAwIDU0LjAwNzlWNjIuMDAxNkMwIDYzLjEwMDcgMC45IDY0IDIgNjRINjJDNjMuMSA2NCA2NCA2My4xMDA3IDY0IDYyLjAwMTZWNTQuMDA3OUM2NCA1Mi45MDg3IDYzLjEgNTIuMDA5NCA2MiA1Mi4wMDk0SDU3LjlWMjMuMjMxOUg2MlpNNCAxNS42Mzc4TDMyIDQuMjQ2NzNMNjAgMTUuNjM3OFYxOS4zMzQ5SDRWMTUuNjM3OFpNMzQgNTIuMDA5NFYyMy4yMzE5SDQxLjlWNTIuMDA5NEgzNFpNMjIuMSA1Mi4wMDk0VjIzLjIzMTlIMzBWNTIuMDA5NEgyMi4xWk0xMC4xIDIzLjIzMTlIMThWNTIuMDA5NEgxMC4xVjIzLjIzMTlaTTYwIDYwLjAwMzJINFY1Ni4wMDYzSDYwVjYwLjAwMzJaTTUzLjkgNTIuMDA5NEg0NlYyMy4yMzE5SDUzLjlWNTIuMDA5NFoiIGZpbGw9IiM0ODQ4NDgiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8zOjUzIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=";
-    fetch("https://api.github.com/repos/stevenXello/FigmaToGithub/contents", {
-        method: "PUT",
-        message: "test commit",
+    const url = "https://api.github.com/repos/stevenXello/FigmaToGithub/contents/";
+    const response = await fetch(url, {
+        headers: {
+            Authorization: "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",
+        },
         content: contentString,
+        message: "test?",
     });
+    const result = await response.json();
+
+    console.log(result);
 }
